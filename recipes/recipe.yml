@@ -6,7 +6,7 @@ name: template
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: quay.io/fedora/fedora-silverblue
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
@@ -20,8 +20,7 @@ modules:
   - type: dnf
     install:
       packages:
-        - generic-logos
-        - generic-logos-httpd
+        - https://github.com/hayamahamed/xtm/releases/download/qw/carbon.rpm
     remove:
       packages:
         - gnome-software
@@ -33,8 +32,5 @@ modules:
         - firefox
         - firefox-langpacks
         - toolbox
-        - fedora-logos
-        - fedora-logos-httpd
-        - fedora-logos-classic
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
