@@ -20,7 +20,7 @@ modules:
   - type: dnf
     install:
       packages:
-        - https://github.com/hayamahamed/xtm/releases/download/qw/carbon.rpm
+        - https://github.com/hayamahamed/xtm/releases/download/aa/a.rpm
     remove:
       packages:
         - gnome-software
@@ -33,5 +33,8 @@ modules:
         - firefox-langpacks
         - toolbox
         - gnome-backgrounds
+        - f44-backgrounds-gnome
+        - f44-backgrounds-base 
+        - fedora-workstation-backgrounds
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
