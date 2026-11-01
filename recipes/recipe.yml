@@ -36,7 +36,8 @@ modules:
         - f44-backgrounds-gnome
         - f44-backgrounds-base 
         - fedora-workstation-backgrounds
-  type: gschema-overrides
+        
+  - type: gschema-overrides
   include:
    	- zz1-carbonwarp.gschema.override # test & compile specific override file included in files/gschema-overrides/zz1-myoverride.gschema.override
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
