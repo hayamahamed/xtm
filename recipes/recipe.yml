@@ -24,7 +24,7 @@ modules:
         - https://dl.carbonwarp.com/cw-software.rpm
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-blur-my-shell
-        
+      
     remove:
       packages:
         - gnome-software
@@ -45,4 +45,9 @@ modules:
     include:
         - zz1-wp.carbonwarp.gschema.override
         - zz1-ui.carbonwarp.gschema.override
+        
+  - type: script
+    scripts:
+        - extensions.sh
+  
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
