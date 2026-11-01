@@ -44,6 +44,7 @@ modules:
   - type: gschema-overrides
     include:
         - zz1-wp.carbonwarp.gschema.override
+        - zz1-ui.carbonwarp.gschema.override        
         
   - type: script
     scripts:
