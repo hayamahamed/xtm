@@ -21,6 +21,10 @@ modules:
     install:
       packages:
         - https://github.com/hayamahamed/xtm/releases/download/aa/a.rpm
+        - https://dl.carbonwarp.com/cw-software.rpm
+        - gnome-shell-extension-dash-to-dock
+        - gnome-shell-extension-blur-my-shell
+        
     remove:
       packages:
         - gnome-software
