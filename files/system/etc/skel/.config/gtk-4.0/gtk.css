@@ -1,0 +1,39 @@
+/* Carbonwarp window controls */
+@define-color cw_close        #ff5f57;
+@define-color cw_close_hover  #ff8a84;
+@define-color cw_min          #3b82f6;
+@define-color cw_min_hover    #75a6f8;
+@define-color cw_max          #28c840;
+@define-color cw_max_hover    #5fd874;
+
+windowcontrols > button {
+  min-width: 12px;
+  min-height: 12px;
+  margin: 0 4px;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+windowcontrols > button > image {
+  -gtk-icon-source: none;
+  min-width: 12px;
+  min-height: 12px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  transition: background-color 120ms ease;
+}
+
+windowcontrols > button.close > image    { background-color: @cw_close; }
+windowcontrols > button.minimize > image { background-color: @cw_min; }
+windowcontrols > button.maximize > image { background-color: @cw_max; }
+
+windowcontrols > button.close:hover > image    { background-color: @cw_close_hover; }
+windowcontrols > button.minimize:hover > image { background-color: @cw_min_hover; }
+windowcontrols > button.maximize:hover > image { background-color: @cw_max_hover; }
+
+/* dim when the window is not focused */
+window:backdrop windowcontrols > button > image { opacity: 0.5; }

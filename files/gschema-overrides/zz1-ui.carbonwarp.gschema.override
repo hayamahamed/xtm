@@ -1,6 +1,7 @@
 [org.gnome.shell]
 enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx']
 
+# Dash to Dock does all the dock styling
 [org.gnome.shell.extensions.dash-to-dock]
 show-trash=false
 show-mounts=false
@@ -10,19 +11,22 @@ dock-position='BOTTOM'
 dash-max-icon-size=34
 custom-theme-shrink=false
 
-# Blur my Shell: transparent top bar only, no blur anywhere
+# Blur my Shell, thing 1 and 2: panel, dynamic, sigma 0, blur on
 [org.gnome.shell.extensions.blur-my-shell.panel]
-blur=false
-override-background=true
-style-panel=0
+blur=true
+static-blur=false
+sigma=0
 
+# Blur my Shell must leave the dock alone
+[org.gnome.shell.extensions.blur-my-shell.dash-to-dock]
+blur=false
+override-background=false
+
+# Everything else in Blur my Shell off
 [org.gnome.shell.extensions.blur-my-shell.overview]
 blur=false
 
 [org.gnome.shell.extensions.blur-my-shell.appfolder]
-blur=false
-
-[org.gnome.shell.extensions.blur-my-shell.dash-to-dock]
 blur=false
 
 [org.gnome.shell.extensions.blur-my-shell.lockscreen]
