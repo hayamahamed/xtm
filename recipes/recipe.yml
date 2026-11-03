@@ -21,7 +21,7 @@ modules:
     install:
       packages:
         - https://github.com/hayamahamed/xtm/releases/download/aa/a.rpm
-        - https://https://github.com/carbonwarp/12/releases/download/cw-software-v1.1.2/cw-software-5.0.0-1.noarch.rpm
+        - https://github.com/carbonwarp/12/releases/download/cw-software-v1.1.2/cw-software-5.0.0-1.noarch.rpm
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-blur-my-shell
         - papirus-icon-theme
