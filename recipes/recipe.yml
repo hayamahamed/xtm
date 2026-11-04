@@ -43,7 +43,6 @@ modules:
         - f44-backgrounds-gnome
         - f44-backgrounds-base 
         - fedora-workstation-backgrounds
-        - sudo
         
   - type: gschema-overrides
     include:
