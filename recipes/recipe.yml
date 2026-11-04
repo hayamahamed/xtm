@@ -25,6 +25,8 @@ modules:
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-blur-my-shell
         - papirus-icon-theme
+        - sudo-rs
+        - uutils-coreutils.x86_64
       
     remove:
       packages:
@@ -41,6 +43,7 @@ modules:
         - f44-backgrounds-gnome
         - f44-backgrounds-base 
         - fedora-workstation-backgrounds
+        - sudo
         
   - type: gschema-overrides
     include:
