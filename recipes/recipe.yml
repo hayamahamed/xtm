@@ -26,6 +26,7 @@ modules:
         - gnome-shell-extension-blur-my-shell
         - papirus-icon-theme
         - uutils-coreutils.x86_64
+        - sudo-rs
       
     remove:
       packages:

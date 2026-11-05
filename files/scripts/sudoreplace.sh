@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-dnf install sudo-rs
 
 rm /usr/bin/sudo
 rm /usr/bin/su
