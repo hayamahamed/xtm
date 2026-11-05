@@ -45,7 +45,7 @@ modules:
         
   - type: script
     scripts:
-        - sudoreplace.nu
+        - sudoreplace.sh
   - type: gschema-overrides
     include:
         - zz1-wp.carbonwarp.gschema.override

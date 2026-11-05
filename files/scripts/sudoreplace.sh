@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env bash
 
 dnf install sudo-rs
 
