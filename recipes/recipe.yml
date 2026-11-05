@@ -25,7 +25,6 @@ modules:
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-blur-my-shell
         - papirus-icon-theme
-        - sudo-rs
         - uutils-coreutils.x86_64
       
     remove:
@@ -43,7 +42,9 @@ modules:
         - f44-backgrounds-gnome
         - f44-backgrounds-base 
         - fedora-workstation-backgrounds
-        
+  - type: script
+    script:
+        - sudo-replace.nu
   - type: gschema-overrides
     include:
         - zz1-wp.carbonwarp.gschema.override
