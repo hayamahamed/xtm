@@ -5,5 +5,5 @@ dnf install sudo-rs
 rm /usr/bin/sudo
 rm /usr/bin/su
 
-ln -s sudo sudo-rs
-ln -s su su-rs
+ln -s /usr/bin/sudo /usr/bin/sudo-rs
+ln -s /usr/bin/su /usr/binsu-rs
