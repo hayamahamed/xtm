@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env bash
 set -euo pipefail
 
 # Replacing possible things with memory safe rust

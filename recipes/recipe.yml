@@ -47,7 +47,7 @@ modules:
         
   - type: script
     scripts:
-        - rust.nu
+        - rust.sh
         
   - type: gschema-overrides
     include:
