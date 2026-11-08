@@ -15,19 +15,24 @@ modules:
   - type: files
     files:
       - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+        destination: /
         
-  - type: dnf
+  - type: gnome-extensions
+    install:
+     - ArcMenu # It is not available as .rpm therefore, should be installed via extensions
+     
+  - type: dnf # UI --> Function --> Custom packages (commonly Carbonwarp's)
     install:
       packages:
-        - https://github.com/hayamahamed/xtm/releases/download/aa/a.rpm
-        - https://github.com/carbonwarp/12/releases/download/cw-software-v1.1.2/cw-software-5.0.0-1.noarch.rpm
+
         - gnome-shell-extension-dash-to-dock
-        - gnome-shell-extension-blur-my-shell
         - papirus-icon-theme
-        - uutils-coreutils.x86_64
-        - gnome-shell-extension-just-perfection
+        
         - sudo-rs
+        
+        - https://github.com/carbonwarp/12/releases/download/cw-software-latest/cw-software.rpm
+        - https://github.com/carbonwarp/12/releases/download/carbonwarp-backgrounds-latest/carbonwarp-backgrounds.rpm
+        - https://github.com/hayamahamed/xtm/releases/download/aa/a.rpm # cw icons
       
     remove:
       packages:
