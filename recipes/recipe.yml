@@ -21,12 +21,10 @@ modules:
     install:
      - ArcMenu # It is not available as .rpm therefore, should be installed via extensions
      
-  - type: dnf # UI --> Function --> Custom packages (commonly Carbonwarp's)
+  - type: dnf # Function --> Custom packages (commonly Carbonwarp's)
     install:
       packages:
 
-        - gnome-shell-extension-dash-to-dock
-        - papirus-icon-theme
         
         - sudo-rs
         
