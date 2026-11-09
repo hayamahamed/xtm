@@ -31,7 +31,7 @@ modules:
         - https://github.com/carbonwarp/12/releases/download/cw-software-latest/cw-software.rpm
         - https://github.com/carbonwarp/12/releases/download/carbonwarp-backgrounds-latest/carbonwarp-backgrounds.rpm
         - https://github.com/carbonwarp/12/releases/download/clearui-latest/clearui.rpm
-        - https://github.com/hayamahamed/xtm/releases/download/aa/a.rpm # cw icons
+        - https://github.com/hayamahamed/xtm/releases/download/latest/a.rpm # cw icons
       
     remove:
       packages:
