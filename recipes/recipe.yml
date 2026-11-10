@@ -34,7 +34,7 @@ modules:
         - https://github.com/carbonwarp/12/releases/download/clearui-latest/clearui.rpm
         - https://github.com/hayamahamed/xtm/releases/download/latest/a.rpm # cw icons
         
-        - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
+        # - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
         - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-x86_64.rpm
       
     remove:
