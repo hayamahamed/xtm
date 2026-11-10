@@ -17,9 +17,10 @@ modules:
       - source: system
         destination: /
         
-  - type: gnome-extensions
+  - type: gnome-extensions # unavailable as .rpm therefore, should be installed via extensions
     install:
-     - ArcMenu # It is not available as .rpm therefore, should be installed via extensions
+     - ArcMenu
+     - Transparent Top Bar
      
   - type: dnf # Function --> Custom packages (commonly Carbonwarp's)
     install:
@@ -32,6 +33,9 @@ modules:
         - https://github.com/carbonwarp/12/releases/download/carbonwarp-backgrounds-latest/carbonwarp-backgrounds.rpm
         - https://github.com/carbonwarp/12/releases/download/clearui-latest/clearui.rpm
         - https://github.com/hayamahamed/xtm/releases/download/latest/a.rpm # cw icons
+        
+        - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
+        - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-x86_64.rpm
       
     remove:
       packages:
@@ -48,6 +52,12 @@ modules:
         - f44-backgrounds-gnome
         - f44-backgrounds-base 
         - fedora-workstation-backgrounds
+        
+        - gnome-shell-extension-places-menu.noarch
+        - gnome-shell-extension-launch-new-instance
+        - gnome-shell-extension-apps-menu
+        - gnome-shell-extension-background-logo
+        - gnome-shell-extension-window-list
         
   - type: script
     scripts:
