@@ -19,8 +19,8 @@ modules:
         
   - type: gnome-extensions # unavailable as .rpm therefore, should be installed via extensions
     install:
-     - ArcMenu
-     - Transparent Top Bar
+     - 3628 # ArcMenu by Andrew
+     - 1708 # Transparent Top Bar by zhanghai
      
   - type: dnf # Function --> Custom packages (commonly Carbonwarp's)
     install:
