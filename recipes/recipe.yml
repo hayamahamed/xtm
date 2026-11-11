@@ -7,7 +7,7 @@ description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: quay.io/fedora/fedora-silverblue
-image-version: latest # You can pin to a specific version of Fedora as well
+image-version: 44@sha256:95cda0e45422a0d5687e2a7f560b7e2374ef74c365b3a4fb369ae7a39a6c56ec # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
