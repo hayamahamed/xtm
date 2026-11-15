@@ -32,7 +32,9 @@ modules:
         - https://github.com/carbonwarp/12/releases/download/clearui-latest/clearui.rpm
         - https://github.com/carbonwarp/12/releases/download/browsing-exp-latest/browsing-exp.rpm
         - https://github.com/hayamahamed/xtm/releases/download/latest/a.rpm # cw icons
-        - 
+
+  - type: dnf # Function --> Custom packages (commonly Carbonwarp's)
+    install:
       skip-unavailable: true
       packages:
         - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
