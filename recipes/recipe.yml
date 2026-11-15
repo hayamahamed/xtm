@@ -24,19 +24,23 @@ modules:
      
   - type: dnf # Function --> Custom packages (commonly Carbonwarp's)
     install:
-      packages:
-
-        
+      packages:    
         - sudo-rs
         
         - https://github.com/carbonwarp/12/releases/download/cw-software-latest/cw-software.rpm
         - https://github.com/carbonwarp/12/releases/download/carbonwarp-backgrounds-latest/carbonwarp-backgrounds.rpm
         - https://github.com/carbonwarp/12/releases/download/clearui-latest/clearui.rpm
+        - https://github.com/carbonwarp/12/releases/download/browsing-exp-latest/browsing-exp.rpm
         - https://github.com/hayamahamed/xtm/releases/download/latest/a.rpm # cw icons
-        
-        # - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
+        - 
+      skip-unavailable: true
+      packages:
+        - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
         - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-x86_64.rpm
-      
+        
+
+        - https://github.com/brave/brave-browser/releases/download/v1.99.57/brave-origin-1.99.57-1.aarch64.rpm
+        - https://github.com/brave/brave-browser/releases/download/v1.99.57/brave-origin-1.99.57-1.x86_64.rpm              
     remove:
       packages:
         - gnome-software
@@ -63,9 +67,6 @@ modules:
     scripts:
         - rust.sh
         
-  - type: gschema-overrides
-    include:
-        - zz1-wp.carbonwarp.gschema.override
         
   
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing
