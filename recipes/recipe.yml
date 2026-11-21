@@ -23,6 +23,32 @@ modules:
      - 1708 # Transparent Top Bar by zhanghai
      
   - type: dnf # Function --> Custom packages (commonly Carbonwarp's)
+    remove:
+      packages:
+        - gnome-software
+        - gnome-disk-utility
+        - gnome-system-monitor
+        - gnome-tour
+        - yelp
+        - malcontent-control
+        - firefox
+        - firefox-langpacks
+        - toolbox
+        - gnome-backgrounds
+        - f44-backgrounds-gnome
+        - f44-backgrounds-base
+        - fedora-workstation-backgrounds
+        
+        - fedora-logos
+        - fedora-logos-httpd
+        - fedora-logos-classic
+        
+        - gnome-shell-extension-places-menu.noarch
+        - gnome-shell-extension-launch-new-instance
+        - gnome-shell-extension-apps-menu
+        - gnome-shell-extension-background-logo
+        - gnome-shell-extension-window-list
+        
     install:
       packages:    
         - sudo-rs
@@ -39,27 +65,7 @@ modules:
         
         # - https://github.com/brave/brave-browser/releases/download/v1.99.57/brave-origin-1.99.57-1.aarch64.rpm
         - https://github.com/brave/brave-browser/releases/download/v1.99.57/brave-origin-1.99.57-1.x86_64.rpm
-    remove:
-      packages:
-        - gnome-software
-        - gnome-disk-utility
-        - gnome-system-monitor
-        - gnome-tour
-        - yelp
-        - malcontent-control
-        - firefox
-        - firefox-langpacks
-        - toolbox
-        - gnome-backgrounds
-        - f44-backgrounds-gnome
-        - f44-backgrounds-base 
-        - fedora-workstation-backgrounds
-        
-        - gnome-shell-extension-places-menu.noarch
-        - gnome-shell-extension-launch-new-instance
-        - gnome-shell-extension-apps-menu
-        - gnome-shell-extension-background-logo
-        - gnome-shell-extension-window-list
+
 
   - type: script
     scripts:
