@@ -31,7 +31,7 @@ modules:
         - https://github.com/carbonwarp/12/releases/download/carbonwarp-backgrounds-latest/carbonwarp-backgrounds.rpm
         - https://github.com/carbonwarp/12/releases/download/clearui-latest/clearui.rpm
         - https://github.com/carbonwarp/12/releases/download/browsing-exp-latest/browsing-exp.rpm     
-        https://github.com/carbonwarp/12/releases/download/carbonwarp-logos-latest/carbonwarp-logos.rpm
+        - https://github.com/carbonwarp/12/releases/download/carbonwarp-logos-latest/carbonwarp-logos.rpm
         - https://brave-browser-rpm-release.s3.brave.com/x86_64/brave-keyring-1.19-1.noarch.rpm
         
         # - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
