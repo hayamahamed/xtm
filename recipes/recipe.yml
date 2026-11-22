@@ -70,4 +70,7 @@ modules:
   - type: script
     scripts:
         - rust.sh
+    snippets:
+        - echo "carbonwarp" > /etc/hostname && echo "127.0.0.1 carbonwarp" >> /etc/hosts
+
   - type: signing
