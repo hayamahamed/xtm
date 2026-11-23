@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-printf "carbonwarp" > /usr/etc/hostname
-echo "127.0.0.1 carbonwarp" >> /etc/hosts
+printf "carbonwarp" > /etc/hostname
+echo "127.0.0.1 carbonwarp" >> /usr/etc/hosts
 # Replacing possible things with memory safe rust
 # ================================================
 # Current Status:
