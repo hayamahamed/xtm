@@ -50,7 +50,9 @@ modules:
         - gnome-shell-extension-window-list
         
     install:
-      packages:    
+      packages:   
+        - plymouth-plugin-script
+        - plymouth-scripts
         - sudo-rs
         
         - https://github.com/carbonwarp/12/releases/download/cw-software-latest/cw-software.rpm
@@ -70,6 +72,10 @@ modules:
   - type: script
     scripts:
         - rust.sh
-
+  - type: kargs
+    kargs:
+      - selinux=1
+      - enforcing=1
+      - mitigations=auto
 
   - type: signing

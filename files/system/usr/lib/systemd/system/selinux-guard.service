@@ -1,0 +1,12 @@
+[Unit]
+Description=Verify SELinux is enforcing and locked
+After=selinux-lock.service
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/libexec/selinux-guard
+
+[Install]
+WantedBy=multi-user.target

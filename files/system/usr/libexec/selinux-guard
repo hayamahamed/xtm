@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+set -u
+ISSUE=/run/issue.d/50-selinux-guard.issue
+
+fail() {
+    logger -p auth.crit -t selinux-guard "BLOCKED: $1"
+    mkdir -p /run/issue.d
+    printf '\n*** SELinux guard: %s. Graphical login is disabled. ***\n\n' "$1" > "$ISSUE"
+    exit 1
+}
+
+# Skip real live media
+if mountpoint -q /run/initramfs/live; then
+    exit 0
+fi
+
+grep -qw selinux /sys/kernel/security/lsm 2>/dev/null || fail "SELinux is not the active LSM"
+[ -d /sys/fs/selinux ] || fail "SELinux is not loaded"
+
+if [ "$(cat /sys/fs/selinux/enforce)" != 1 ]; then
+    logger -p auth.alert -t selinux-guard "Booted permissive, forcing enforcing"
+    /usr/sbin/setenforce 1 || fail "could not set enforcing mode"
+fi
+
+[ "$(/usr/sbin/getsebool secure_mode_policyload 2>/dev/null | awk '{print $3}')" = "on" ] \
+    || fail "policy lock is not active"
+exit 0
