@@ -77,5 +77,10 @@ modules:
       - selinux=1
       - enforcing=1
       - mitigations=auto
+      
+  - type: script
+    snippets:
+      - plymouth-set-default-theme carbonwarp
 
+  - type: initramfs
   - type: signing
