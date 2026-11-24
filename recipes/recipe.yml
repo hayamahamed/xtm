@@ -1,28 +1,27 @@
----
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
 name: template
-# description will be included in the image's metadata
 description: This is my personal OS image.
 
-# the base image to build on top of (FROM) and the version tag to use
 base-image: quay.io/fedora/fedora-silverblue
 image-version: 44
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
+  # Static files copied into the image
   - type: files
     files:
       - source: system
         destination: /
-        
-  - type: gnome-extensions # unavailable as .rpm therefore, should be installed via extensions
+
+  # Extensions that are not available as RPMs
+  - type: gnome-extensions
     install:
-     - 3628 # ArcMenu by Andrew
-     - 1708 # Transparent Top Bar by zhanghai
-     
-  - type: dnf # Function --> Custom packages (commonly Carbonwarp's)
+      - 3628 # ArcMenu by Andrew
+      - 1708 # Transparent Top Bar by zhanghai
+
+  # 1. Remove stock packages, then restore the plymouth pieces that
+  #    removing fedora-logos drags out as dependents. This is a separate
+  #    transaction, so everything is on disk before the custom RPMs install.
+  - type: dnf
     remove:
       packages:
         - gnome-software
@@ -38,49 +37,54 @@ modules:
         - f44-backgrounds-gnome
         - f44-backgrounds-base
         - fedora-workstation-backgrounds
-        
         - fedora-logos
         - fedora-logos-httpd
         - fedora-logos-classic
-        
-        - gnome-shell-extension-places-menu.noarch
+        - gnome-shell-extension-places-menu
         - gnome-shell-extension-launch-new-instance
         - gnome-shell-extension-apps-menu
         - gnome-shell-extension-background-logo
         - gnome-shell-extension-window-list
-        
     install:
-      packages:   
+      packages:
+        - plymouth-graphics-libs
         - plymouth-plugin-script
+        - plymouth-plugin-two-step
+        - plymouth-plugin-label
         - plymouth-scripts
+
+  # 2. Custom RPMs (Carbonwarp, Brave, sudo-rs)
+  - type: dnf
+    install:
+      packages:
         - sudo-rs
-        
         - https://github.com/carbonwarp/12/releases/download/cw-software-latest/cw-software.rpm
         - https://github.com/carbonwarp/12/releases/download/carbonwarp-backgrounds-latest/carbonwarp-backgrounds.rpm
         - https://github.com/carbonwarp/12/releases/download/clearui-latest/clearui.rpm
-        - https://github.com/carbonwarp/12/releases/download/browsing-exp-latest/browsing-exp.rpm     
+        - https://github.com/carbonwarp/12/releases/download/browsing-exp-latest/browsing-exp.rpm
         - https://github.com/carbonwarp/12/releases/download/carbonwarp-logos-latest/carbonwarp-logos.rpm
         - https://brave-browser-rpm-release.s3.brave.com/x86_64/brave-keyring-1.19-1.noarch.rpm
-        
+        # arm64 variants:
         # - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-arm64.rpm
-        - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-x86_64.rpm
-        
         # - https://github.com/brave/brave-browser/releases/download/v1.99.57/brave-origin-1.99.57-1.aarch64.rpm
+        - https://github.com/carbonwarp/12/releases/download/filee-latest/filee-x86_64.rpm
         - https://github.com/brave/brave-browser/releases/download/v1.99.57/brave-origin-1.99.57-1.x86_64.rpm
-
 
   - type: script
     scripts:
-        - rust.sh
+      - rust.sh
+
   - type: kargs
     kargs:
       - selinux=1
       - enforcing=1
       - mitigations=auto
-      
+
+  # Set the plymouth theme (no -R; initramfs module below rebuilds once)
   - type: script
     snippets:
       - plymouth-set-default-theme carbonwarp
 
+  # Keep these two LAST, in this order
   - type: initramfs
   - type: signing
