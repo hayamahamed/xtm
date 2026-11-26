@@ -84,7 +84,11 @@ modules:
   - type: script
     snippets:
       - plymouth-set-default-theme carbonwarp
-
+  - type: systemd
+    system:
+      enabled:
+        - selinux-lock.service
+        - selinux-guard.service
   # Keep these two LAST, in this order
   - type: initramfs
   - type: signing
