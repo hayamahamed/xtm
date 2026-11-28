@@ -55,7 +55,7 @@ modules:
         - plymouth-plugin-label
         - plymouth-scripts
   
-  - gnome-shell-extension-caffeine
+        - gnome-shell-extension-caffeine
   
 
   - type: dnf
