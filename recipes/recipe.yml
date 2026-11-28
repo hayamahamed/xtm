@@ -17,6 +17,8 @@ modules:
     install:
       - 3628 # ArcMenu by Andrew
       - 1708 # Transparent Top Bar by zhanghai
+      - 7065 # Tiling shell by ferrarondomenico
+      -	5263 # Gtk4 DING by smedius
 
   # 1. Remove stock packages, then restore the plymouth pieces that
   #    removing fedora-logos drags out as dependents. This is a separate
@@ -52,8 +54,10 @@ modules:
         - plymouth-plugin-two-step
         - plymouth-plugin-label
         - plymouth-scripts
+	
+	- gnome-shell-extension-caffeine
+	
 
-  # 2. Custom RPMs (Carbonwarp, Brave, sudo-rs)
   - type: dnf
     install:
       packages:
@@ -76,19 +80,17 @@ modules:
 
   - type: kargs
     kargs:
-      - selinux=1
-      - enforcing=1
       - mitigations=auto
 
-  # Set the plymouth theme (no -R; initramfs module below rebuilds once)
   - type: script
     snippets:
       - plymouth-set-default-theme carbonwarp
+      
   - type: systemd
     system:
       enabled:
         - selinux-lock.service
         - selinux-guard.service
-  # Keep these two LAST, in this order
+        
   - type: initramfs
   - type: signing
