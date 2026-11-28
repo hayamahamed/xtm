@@ -77,6 +77,8 @@ modules:
   - type: script
     scripts:
       - rust.sh
+    snippets:
+      - "chmod +x -R /usr/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/**"
 
   - type: kargs
     kargs:
